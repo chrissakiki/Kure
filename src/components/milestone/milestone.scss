@@ -1,0 +1,35 @@
+.milestone-wrapper {
+  padding: 80px 0;
+  background-position: center;
+  background-size: cover;
+
+  @media (min-width: 900px) {
+    background-attachment: fixed;
+  }
+
+  .container {
+    max-width: 1140px;
+    margin: auto;
+    color: #f8f9f7;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+    padding: 0 30px;
+
+    .item {
+      text-align: center;
+      margin-top: 10px;
+      h3 {
+        font-size: 1.5rem;
+      }
+      .divider {
+        background: var(--primary-color);
+        height: 2px;
+        width: 90px;
+        margin: 15px auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.footer-wrapper {
+  padding: 40px 0 15px 0;
+  background: var(--primary-color);
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    color: #f8f9f7;
+
+    .icons-container {
+      display: flex;
+      gap: 15px;
+
+      a {
+        text-decoration: none;
+      }
+
+      svg {
+        font-size: 28px;
+        color: #f8f9f7;
+        transition: all 0.4s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+
+      .insta {
+        font-size: 32px;
+      }
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+
+      .links {
+        cursor: pointer;
+      }
+    }
+  }
+}
