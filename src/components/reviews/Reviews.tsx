@@ -1,35 +1,35 @@
-import React from "react";
-import "./reviews.scss";
-import reviewImage from "../../assets/images/review.webp";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import { Navigation } from "swiper";
-import "swiper/css/navigation";
-import "swiper/css/effect-fade";
-import { BsChatLeftQuote } from "react-icons/bs";
-import * as Scroll from "react-scroll";
+import React from 'react';
+import './reviews.scss';
+import reviewImage from '../../assets/images/review.webp';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import { Navigation } from 'swiper';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
+import { BsChatLeftQuote } from 'react-icons/bs';
+import * as Scroll from 'react-scroll';
 var Element = Scroll.Element;
 const Reviews = () => {
   const reviewsObj = [
     {
-      name: "Nada Alami",
+      name: 'Nada Alami',
       text: "The Session was great, I am super impressed how professional and talented the therapist is. It's rare to see this kind of service in Lebanon.",
     },
     {
-      name: "Chimene Zouki",
-      text: "I am in love with the therapists, It was amazing and very professional! I would definitly book another session with you guys.",
+      name: 'Chimene Zouki',
+      text: 'I am in love with the therapists, It was amazing and very professional! I would definitly book another session with you guys.',
     },
     {
-      name: "Zahi Sayegh",
-      text: "It was AAA very professional and health oriented session. We will be more than glad to book againt next week. Your idea is exceptional and makes people proud about Lebanese creativity.",
+      name: 'Zahi Sayegh',
+      text: 'It was AAA very professional and health oriented session. We will be more than glad to book againt next week. Your idea is exceptional and makes people proud about Lebanese creativity.',
     },
     {
-      name: "Khalil",
-      text: "Both therapists were amazing. It was a great start to the day, They were very friendly and did a great job. We will definitely book with them again.",
+      name: 'Khalil',
+      text: 'Both therapists were amazing. It was a great start to the day, They were very friendly and did a great job. We will definitely book with them again.',
     },
     {
-      name: "Melissa Maalouf",
-      text: "It was great, I highly recommend it and I will do it again. It was just perfect!",
+      name: 'Melissa Maalouf',
+      text: 'It was great, I highly recommend it and I will do it again. It was just perfect!',
     },
   ];
   return (
@@ -37,7 +37,7 @@ const Reviews = () => {
       <div
         className="reviews-wrapper"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
       url(${reviewImage})`,
         }}
       >

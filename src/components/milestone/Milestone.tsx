@@ -1,12 +1,12 @@
-import React from "react";
-import "./milestone.scss";
-import Banner from "../../assets/images/milestone.webp";
+import React from 'react';
+import './milestone.scss';
+import Banner from '../../assets/images/milestone.webp';
 const Milestone = () => {
   return (
     <div
       className="milestone-wrapper"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)),
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)),
     url(${Banner})`,
       }}
     >
