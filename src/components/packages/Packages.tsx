@@ -7,7 +7,7 @@ const Packages = () => {
   const packagesObj = [
     {
       name: 60,
-      price: 40,
+      price: 45,
       details: [
         "One massage therapist",
         "One massage table",
@@ -20,7 +20,7 @@ const Packages = () => {
     },
     {
       name: 90,
-      price: 55,
+      price: 60,
       details: [
         "One massage therapist",
         "One massage table",
@@ -33,7 +33,7 @@ const Packages = () => {
     },
     {
       name: "Couple",
-      price: 70,
+      price: 80,
       details: [
         "Two massage therapist",
         "Two massage table",

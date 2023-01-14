@@ -1,5 +1,6 @@
 .works-wrapper {
   padding: 50px 0;
+  background: #f8f9f7;
   .container {
     max-width: 1140px;
     margin: auto;
@@ -19,8 +20,8 @@
       .box {
         width: 300px;
         height: 200px;
-        box-shadow: 8px 8px 22px rgba(0, 0, 0, 0.2);
-        padding: 30px 20px;
+        box-shadow: 8px 8px 22px rgba(0, 0, 0, 0.25);
+        padding: 20px 20px 30px 20px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -28,6 +29,12 @@
         gap: 15px;
         border-radius: 10px;
         margin-top: 20px;
+
+        &:first-child {
+          @media (max-width: 480px) {
+            padding-bottom: 50px;
+          }
+        }
 
         @media (max-width: 480px) {
           width: 95%;
@@ -41,7 +48,7 @@
 
         p {
           letter-spacing: 0.9px;
-          line-height: 1.4;
+          line-height: 1.5;
           font-weight: 400;
           font-size: 1.05rem;
           color: #333;

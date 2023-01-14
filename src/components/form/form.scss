@@ -13,7 +13,7 @@
     padding: 25px 20px;
     display: flex;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-direction: column;
     background: #f8f9fa;
     border-radius: 15px;
@@ -25,7 +25,7 @@
       width: 90%;
     }
     @media (max-width: 480px) {
-      height: 530px;
+      height: 510px;
       padding: 25px 12px;
     }
     .header {
@@ -82,10 +82,11 @@
 
       label {
         font-size: 1.1rem;
+        font-weight: 500;
+        color: #333;
       }
 
-      input[type="text"],
-      input[type="email"] {
+      input[type="text"] {
         width: 89%;
         padding: 4px 10px;
         outline: none;

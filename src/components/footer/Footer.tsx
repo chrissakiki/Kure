@@ -4,7 +4,9 @@ import { FaFacebook } from "react-icons/fa";
 import { BsWhatsapp } from "react-icons/bs";
 import "./footer.scss";
 import { Link } from "react-scroll";
+import Privacy from "../privacy/Privacy";
 const Footer = () => {
+  const [showPP, setShowPP] = React.useState(false);
   return (
     <div className="footer-wrapper">
       <div className="container">
@@ -39,10 +41,15 @@ const Footer = () => {
           <Link to="packages" className="links" offset={50}>
             Packages
           </Link>
+          <p className="links" onClick={() => setShowPP(true)}>
+            Privacy Policy
+          </p>
         </div>
 
         <p>@2022 Kure | All Rights Reserved</p>
       </div>
+
+      {showPP && <Privacy setShowPP={setShowPP} />}
     </div>
   );
 };

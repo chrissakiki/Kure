@@ -3,11 +3,23 @@ import "./form.scss";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ReactPixel from "react-facebook-pixel";
 interface Props {
   setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
 const Form: React.FC<Props> = ({ setShowForm }) => {
-  const servicesObj = [
+  //facebook pixels
+
+  const advancedMatching: any = { em: "akikichriss@gmail.com" }; // optional, more info: https://developers.facebook.com/docs/facebook-pixel/advanced/advanced-matching
+  const options = {
+    autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+    debug: false, // enable logs
+  };
+  ReactPixel.init("484063156798027", advancedMatching, options);
+
+  ReactPixel.pageView();
+
+  const servicesArr = [
     "Deep Tissue",
     "Trigger Point",
     "Sports",
@@ -19,11 +31,18 @@ const Form: React.FC<Props> = ({ setShowForm }) => {
     "Anti Cellulite",
     "Prenatal",
   ];
-  //   let packageObj = ["60 minutes", "90 minutes", "Couple"];
+  let locationArr = [
+    "Beirut",
+    "Baabda",
+    "Byblos",
+    "Batroun",
+    "Keserwan",
+    "Metn",
+  ];
 
-  const [packageObj, setPackageObj] = React.useState<string[]>([]);
+  const [packageArr, setPackageArr] = React.useState<string[]>([]);
   const [fullName, setFullName] = React.useState("");
-  const [email, setEmail] = React.useState("");
+  const [location, setLocation] = React.useState("Beirut");
   const [service, setService] = React.useState("Deep Tissue");
   const [selectedPackage, setSelectedPackage] = React.useState("60 minutes");
   const [selectedDate, setSelectedDate] = React.useState("");
@@ -33,7 +52,7 @@ const Form: React.FC<Props> = ({ setShowForm }) => {
     e.preventDefault();
     if (
       !fullName ||
-      !email ||
+      !location ||
       !service ||
       !selectedPackage ||
       !selectedDate ||
@@ -43,7 +62,7 @@ const Form: React.FC<Props> = ({ setShowForm }) => {
     }
 
     const message = encodeURIComponent(
-      `Hi, I'm ${fullName} and I Would love to book an appointment. \nEmail: ${email} \nService: ${service}. \nPackage: ${selectedPackage}. \nDate: ${selectedDate} | ${selectedTime}`
+      `Hi, I'm ${fullName} and I would like to book an appointment. \Location: ${location} \nService: ${service}. \nPackage: ${selectedPackage}. \nDate: ${selectedDate} | ${selectedTime}`
     );
 
     window.location.replace(`https://wa.me/96176577070?text=${message}`);
@@ -51,16 +70,16 @@ const Form: React.FC<Props> = ({ setShowForm }) => {
 
   React.useEffect(() => {
     if (service === "Reflexology") {
-      setPackageObj(["40 minutes"]);
+      setPackageArr(["40 minutes"]);
       return setSelectedPackage("40 minutes");
     }
 
     if (service === "Anti Cellulite") {
-      setPackageObj(["50 minutes"]);
+      setPackageArr(["50 minutes"]);
       return setSelectedPackage("50 minutes");
     }
 
-    setPackageObj(["60 minutes", "90 minutes", "Couple"]);
+    setPackageArr(["60 minutes", "90 minutes", "Couple"]);
     setSelectedPackage("60 minutes");
   }, [service]);
   return (
@@ -84,14 +103,18 @@ const Form: React.FC<Props> = ({ setShowForm }) => {
             />
           </div>
           <div className="form-group">
-            <label>Email:</label>
-            <input
-              type="email"
+            <label>Location:</label>
+            <select
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
               required
-              placeholder="John@hotmail.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            >
+              {locationArr.map((loc) => (
+                <option key={loc} value={loc}>
+                  {loc}
+                </option>
+              ))}
+            </select>
           </div>
         </div>
 
@@ -103,7 +126,7 @@ const Form: React.FC<Props> = ({ setShowForm }) => {
               onChange={(e) => setService(e.target.value)}
               required
             >
-              {servicesObj.map((serv) => (
+              {servicesArr.map((serv) => (
                 <option key={serv} value={serv}>
                   {serv}
                 </option>
@@ -117,7 +140,7 @@ const Form: React.FC<Props> = ({ setShowForm }) => {
               onChange={(e) => setSelectedPackage(e.target.value)}
               required
             >
-              {packageObj.map((pack) => {
+              {packageArr.map((pack) => {
                 return (
                   <option key={pack} value={pack}>
                     {pack}

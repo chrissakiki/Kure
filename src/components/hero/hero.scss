@@ -4,20 +4,25 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  @media (max-width: 470px) {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
 
   .container {
     max-width: 1240px;
     margin: auto;
     width: 100%;
-    height: 410px;
+    height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
 
     @media (max-width: 970px) {
       height: 350px;
+    }
+    @media (max-width: 470px) {
+      height: 340px;
     }
 
     .content {
@@ -30,7 +35,7 @@
       h1 {
         font-size: 3.5rem;
         color: #f9f9f9;
-        font-weight: 800;
+        font-weight: 700;
         letter-spacing: 0.8px;
 
         @media (max-width: 970px) {
