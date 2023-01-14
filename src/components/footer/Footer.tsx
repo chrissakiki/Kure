@@ -1,10 +1,10 @@
-import React from "react";
-import { AiOutlineInstagram } from "react-icons/ai";
-import { FaFacebook } from "react-icons/fa";
-import { BsWhatsapp } from "react-icons/bs";
-import "./footer.scss";
-import { Link } from "react-scroll";
-import Privacy from "../privacy/Privacy";
+import React from 'react';
+import { AiOutlineInstagram } from 'react-icons/ai';
+import { FaFacebook } from 'react-icons/fa';
+import { BsWhatsapp } from 'react-icons/bs';
+import './footer.scss';
+import { Link } from 'react-scroll';
+import Privacy from '../privacy/Privacy';
 const Footer = () => {
   const [showPP, setShowPP] = React.useState(false);
   return (
@@ -46,7 +46,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <p>@2022 Kure | All Rights Reserved</p>
+        <p>@2023 Kure | All Rights Reserved</p>
       </div>
 
       {showPP && <Privacy setShowPP={setShowPP} />}
