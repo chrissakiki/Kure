@@ -1,22 +1,47 @@
-import React from "react";
-import "./Navbar.scss";
-import Logo from "../../assets/images/logo.png";
-import { Link } from "react-scroll";
-import * as Scroll from "react-scroll";
-import { FiMenu, FiPhoneCall } from "react-icons/fi";
+import React, { useEffect } from 'react';
+import './Navbar.scss';
+import Logo from '../../assets/images/logo.png';
+import { Link } from 'react-scroll';
+import * as Scroll from 'react-scroll';
+import { FiMenu, FiPhoneCall } from 'react-icons/fi';
+import clsx from 'clsx';
 var Element = Scroll.Element;
 const Navbar = () => {
   const [showMenu, setShowMenu] = React.useState(false);
+  const [isScrolling, setIsScrolling] = React.useState(false);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    if (window.scrollY > 7) {
+      return setIsScrolling(true);
+    }
+
+    setIsScrolling(false);
+  };
   return (
     <Element name="home" className="element">
-      <div className="navbar-wrapper">
+      <div
+        className={isScrolling ? 'scrolling navbar-wrapper' : ' navbar-wrapper'}
+      >
         <div className="container">
           <div className="left">
             <Link to="home">
               <img src={Logo} alt="kure logo" />
             </Link>
           </div>
-          <div className={showMenu ? "right active" : "right"}>
+          <div
+            className={clsx('right', {
+              active: showMenu,
+              'link-scrolling': isScrolling,
+            })}
+          >
             <Link
               activeClass="activeLink"
               to="works"

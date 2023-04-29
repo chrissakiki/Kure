@@ -1,52 +1,42 @@
-import React from "react";
-import "./form.scss";
+import React from 'react';
+import './form.scss';
 
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import ReactPixel from "react-facebook-pixel";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ReactPixel from 'react-facebook-pixel';
 interface Props {
   setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
 const Form: React.FC<Props> = ({ setShowForm }) => {
-  //facebook pixels
-
-  const advancedMatching: any = { em: "akikichriss@gmail.com" }; // optional, more info: https://developers.facebook.com/docs/facebook-pixel/advanced/advanced-matching
-  const options = {
-    autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
-    debug: false, // enable logs
-  };
-  ReactPixel.init("484063156798027", advancedMatching, options);
-
-  ReactPixel.pageView();
-
   const servicesArr = [
-    "Deep Tissue",
-    "Trigger Point",
-    "Sports",
-    "Swedish",
-    "Relaxing",
-    "Athletic Recovery",
-    "Flexology",
-    "Reflexology",
-    "Anti Cellulite",
-    "Prenatal",
+    'Deep Tissue',
+    'Trigger Point',
+    'Sports',
+    'Swedish',
+    'Relaxing',
+    'Athletic Recovery',
+    'Flexology',
+    'Reflexology',
+    'Anti Cellulite',
+    'Prenatal',
   ];
   let locationArr = [
-    "Beirut",
-    "Baabda",
-    "Byblos",
-    "Batroun",
-    "Keserwan",
-    "Metn",
+    'Beirut',
+    'Baabda',
+    'Byblos',
+    'Batroun',
+    'Keserwan',
+    'Metn',
   ];
 
   const [packageArr, setPackageArr] = React.useState<string[]>([]);
-  const [fullName, setFullName] = React.useState("");
-  const [location, setLocation] = React.useState("Beirut");
-  const [service, setService] = React.useState("Deep Tissue");
-  const [selectedPackage, setSelectedPackage] = React.useState("60 minutes");
-  const [selectedDate, setSelectedDate] = React.useState("");
-  const [selectedTime, setSelectedTime] = React.useState("");
+  const [fullName, setFullName] = React.useState('');
+  const [location, setLocation] = React.useState('Beirut');
+  const [service, setService] = React.useState('Deep Tissue');
+  const [selectedPackage, setSelectedPackage] = React.useState('60 minutes');
+  const [selectedDate, setSelectedDate] = React.useState('');
+  const [selectedTime, setSelectedTime] = React.useState('');
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -58,7 +48,7 @@ const Form: React.FC<Props> = ({ setShowForm }) => {
       !selectedDate ||
       !selectedTime
     ) {
-      return toast.error("Please provide all values.");
+      return toast.error('Please provide all values.');
     }
 
     const message = encodeURIComponent(
@@ -69,18 +59,18 @@ const Form: React.FC<Props> = ({ setShowForm }) => {
   };
 
   React.useEffect(() => {
-    if (service === "Reflexology") {
-      setPackageArr(["40 minutes"]);
-      return setSelectedPackage("40 minutes");
+    if (service === 'Reflexology') {
+      setPackageArr(['40 minutes']);
+      return setSelectedPackage('40 minutes');
     }
 
-    if (service === "Anti Cellulite") {
-      setPackageArr(["50 minutes"]);
-      return setSelectedPackage("50 minutes");
+    if (service === 'Anti Cellulite') {
+      setPackageArr(['50 minutes']);
+      return setSelectedPackage('50 minutes');
     }
 
-    setPackageArr(["60 minutes", "90 minutes", "Couple"]);
-    setSelectedPackage("60 minutes");
+    setPackageArr(['60 minutes', '90 minutes', 'Couple']);
+    setSelectedPackage('60 minutes');
   }, [service]);
   return (
     <div className="form-wrapper">

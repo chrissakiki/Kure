@@ -1,13 +1,26 @@
 .element {
   height: 70px;
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   z-index: 1000;
-  padding-top: 2px;
-  background: #fff;
-  box-shadow: 8px 8px 22px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 1024px) {
+    background: #fff;
+    box-shadow: 8px 8px 22px rgba(0, 0, 0, 0.2);
+  }
+
+@media (min-width: 1024px){
+  .scrolling{
+    background: #fff;
+    box-shadow: 8px 8px 22px rgba(0, 0, 0, 0.2);
+  }
+
+}
+
   .navbar-wrapper {
+    
     .container {
       max-width: 1140px;
       margin: auto;
@@ -15,13 +28,14 @@
       justify-content: space-between;
       align-items: center;
       position: relative;
-      background: #fff;
+
       padding: 0 50px;
 
-      @media (max-width: 970px) {
+      @media (max-width: 1024px) {
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        background: #fff;
       }
 
       @media (max-width: 500px) {
@@ -38,15 +52,20 @@
       .right {
         display: flex;
         align-items: center;
-        gap: 25px;
+        gap: 30px;
         padding-top: 7px;
+        color: #f3f2f2;
+
+        &.link-scrolling {
+          color: #999;
+        }
 
         &.active {
           display: flex;
           transition: all 0.3s ease-in-out;
         }
 
-        @media (max-width: 970px) {
+        @media (max-width: 1024px) {
           display: none;
           flex-direction: column;
           align-items: flex-start;
@@ -56,8 +75,7 @@
 
         .links {
           font-size: 1.25rem;
-          font-weight: 400;
-          color: #666;
+          font-weight: 500;
           padding: 0 10px;
           cursor: pointer;
           display: flex;
@@ -70,8 +88,12 @@
             color: var(--primary-color);
           }
 
-          &:hover {
+          &:hover { 
             color: var(--primary-color);
+          }
+
+          @media (max-width: 1024px) {
+            color: #999;
           }
         }
 
@@ -95,7 +117,7 @@
             transform: translateY(-2px);
           }
 
-          @media (max-width: 970px) {
+          @media (max-width: 1024px) {
             background: var(--primary-color);
             border: none;
             padding: 0.8rem 1.42rem;
@@ -115,7 +137,7 @@
         padding: 2px 7px;
         display: none;
 
-        @media (max-width: 970px) {
+        @media (max-width: 1024px) {
           display: flex;
         }
 

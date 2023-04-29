@@ -1,46 +1,46 @@
-import React from "react";
-import { AiOutlineCheck } from "react-icons/ai";
-import "./packages.scss";
-import * as Scroll from "react-scroll";
+import React from 'react';
+import { AiOutlineCheck } from 'react-icons/ai';
+import './packages.scss';
+import * as Scroll from 'react-scroll';
 var Element = Scroll.Element;
 const Packages = () => {
   const packagesObj = [
     {
       name: 60,
-      price: 45,
+      price: 50,
       details: [
-        "One massage therapist",
-        "One massage table",
-        "Premium essential oils",
-        "Relaxing music",
-        "Candles",
-        "Your choice of massage",
+        'One massage therapist',
+        'One massage table',
+        'Premium essential oils',
+        'Relaxing music',
+        'Candles',
+        'Your choice of massage',
       ],
       theme: false,
     },
     {
       name: 90,
-      price: 60,
+      price: 75,
       details: [
-        "One massage therapist",
-        "One massage table",
-        "Premium essential oils",
-        "Relaxing music",
-        "Candles",
-        "Your choice of massage",
+        'One massage therapist',
+        'One massage table',
+        'Premium essential oils',
+        'Relaxing music',
+        'Candles',
+        'Your choice of massage',
       ],
       theme: true,
     },
     {
-      name: "Couple",
-      price: 80,
+      name: 'Couple',
+      price: 90,
       details: [
-        "Two massage therapist",
-        "Two massage table",
-        "Premium essential oils",
-        "Relaxing music",
-        "Candles",
-        "Your choice of massage",
+        'Two massage therapist',
+        'Two massage table',
+        'Premium essential oils',
+        'Relaxing music',
+        'Candles',
+        'Your choice of massage',
       ],
       theme: false,
     },
@@ -55,10 +55,12 @@ const Packages = () => {
             {packagesObj.map((pack, i) => (
               <div
                 data-aos="fade-up"
-                className={pack.theme ? "package primary" : "package"}
+                className={pack.theme ? 'package primary' : 'package'}
                 key={i}
               >
-                <h3>{pack.name} minutes</h3>
+                <h3>
+                  {pack.name} {typeof pack.name !== 'string' && 'minutes'}
+                </h3>
                 <h2>{pack.price} USD</h2>
                 <ul>
                   {pack.details.map((list) => (
